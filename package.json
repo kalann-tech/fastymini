@@ -1,4 +1,9 @@
 {
   "name": "fastymini",
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.2",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "version": "0.0.1"
 }
