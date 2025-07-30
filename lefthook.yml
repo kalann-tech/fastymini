@@ -1,11 +1,3 @@
-pre-commit:
-  parallel: true
-  commands:
-    lint-schedule-service:
-      run: cd services/schedule-service && yarn lint
-      stage_fixed: true
-
 commit-msg:
-  commands:
-    lint-commit-msg:
-      run: yarn commitlint --edit {1}
+  jobs:
+    - run: yarn commitlint --edit {1}
