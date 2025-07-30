@@ -40,7 +40,7 @@
     "start": "node dist/index.js",
     "dev": "ts-node --project tsconfig.json ./src/index.ts",
     "build": "yarn release",
-    "lint": "yarn prettier -w 'templates/**/*.ts'",
+    "lint": "yarn prettier -w 'templates/**/*.ts' --config ./templates/.prettierrc.json",
     "rename": "ts-node scripts/rename-config.ts",
     "restore": "ts-node scripts/restore-config.ts"
   }

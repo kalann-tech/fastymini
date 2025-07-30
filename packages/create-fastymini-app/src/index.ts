@@ -59,6 +59,7 @@ async function main() {
       spinner.start();
       await createProject({ projectName, root, packageManager: opts.packageManager, eslint: opts.eslint, prettier: opts.prettier, skipInstall: opts.skipInstall, enableGit: opts.enableGit, editorconfig: opts.editorconfig , template: opts.template || 'default' });
       spinner.succeed(`Project "${projectName}" created successfully!`);
+      console.log(theme.warning('Note: Dont forget to change env.template to .env and fill it with your good credentials.'));
       console.log(`\nNext steps:\n  cd ${projectName}\n  ${opts.packageManager || 'npm'} ${opts.packageManager === 'npm' ? 'run ' : ''}dev`);
     } catch (err) {
       spinner.fail('Project creation failed.');

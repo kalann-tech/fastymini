@@ -1,5 +1,6 @@
 import fs from 'fs-extra'
 import path from 'node:path'
+import eslintOthersPackages from '../consts/eslintOthersPackages'
 interface ApplyPackageOptions {
   root: string
   projectName: string
@@ -19,8 +20,14 @@ export async function applyPackageTemplate({
   const pkg = await fs.readJson(tplPkg)
 
   pkg.name = projectName
-  if (!eslint && pkg.devDependencies) delete pkg.devDependencies['eslint']
   if (!prettier && pkg.devDependencies) delete pkg.devDependencies['prettier']
+  if (!eslint && pkg.devDependencies) {
+    delete pkg.devDependencies['eslint']
+
+    eslintOthersPackages.forEach(pkgName => {
+      if (pkg.devDependencies && pkg.devDependencies[pkgName]) delete pkg.devDependencies[pkgName]
+    })
+  }
 
   
   await fs.writeJson(outPkg, pkg, { spaces: 2 })

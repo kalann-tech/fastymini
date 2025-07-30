@@ -24,7 +24,7 @@ const options: Option[] = [
             description: "A CRUD template MongoDB integration with mongoose",
           },
           {
-            title: "MongoDb with Vitest",
+            title: "MongoDB with Vitest",
             value: "mongo-crud-vitest",
             description:
               "A CRUD template MongoDB with mongoose and Vitest integration",
@@ -54,18 +54,6 @@ const options: Option[] = [
         type: "confirm",
         name: "prettier",
         message: "Do you want to initialize with Prettier?",
-        initial: false,
-      },
-    ],
-  },
-  {
-    flag: "--unit-test",
-    description: "Initialize with unit testing configuration.",
-    prompts: [
-      {
-        type: "confirm",
-        name: "unitTest",
-        message: "Do you want to initialize with unit testing configuration?",
         initial: false,
       },
     ],
