@@ -1,9 +1,14 @@
 {
   "name": "create-fastymini-app",
   "description": "A CLI tool to create a FastyMini app by KALAAN",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kalann-tech/fastymini.git",
+    "directory": "packages/create-fastymini-app"
+  },
+  "author": "Rayan Traore <rayan.traore03@gmail.com>",
   "devDependencies": {
     "@eslint/js": "^9.32.0",
-    "@types/figlet": "^1.7.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.1.0",
     "@types/prompts": "^2.4.9",
@@ -43,5 +48,10 @@
     "lint": "yarn prettier -w 'templates/**/*.ts' --config ./templates/.prettierrc.json",
     "rename": "ts-node scripts/rename-config.ts",
     "restore": "ts-node scripts/restore-config.ts"
-  }
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "license": "MIT"
 }
