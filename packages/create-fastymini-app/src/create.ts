@@ -16,7 +16,6 @@ export interface CreateOptions {
   skipInstall: boolean;
   enableGit: boolean;
   editorconfig: boolean;
-  database: DatabaseType;
 }
 
 export async function createProject({
@@ -29,23 +28,18 @@ export async function createProject({
   skipInstall,
   enableGit,
   editorconfig,
-  database,
 }: CreateOptions) {
   projectName = projectName.split('/').filter(Boolean).pop() || projectName;
   await fs.ensureDir(root);
   try {
     const templateDir = path.resolve(__dirname, `../templates/${template}`);
-    if (!(await fs.pathExists(templateDir))) {
-      throw new Error(`Template not found at ${templateDir}`);
-    }
+    if (!(await fs.pathExists(templateDir))) throw new Error(`Template not found at ${templateDir}`);
 
     await fs.copy(templateDir, root, { overwrite: true, errorOnExist: false });
 
-    await applyPackageTemplate({ root, projectName, eslint, prettier, database });
+    await applyPackageTemplate({ root, projectName, eslint, prettier });
 
     await applyTsconfig({ root });
-
-    
 
     if (enableGit) {
       try {

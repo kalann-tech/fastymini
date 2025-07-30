@@ -1,5 +1,6 @@
 {
   "name": "create-fastymini-app",
+  "description": "A CLI tool to create a FastyMini app by KALAAN",
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
@@ -25,7 +26,8 @@
     "figlet": "^1.8.2",
     "fs-extra": "^11.3.0",
     "ora": "^8.2.0",
-    "prompts": "^2.4.2"
+    "prompts": "^2.4.2",
+    "update-check": "^1.5.4"
   },
   "keywords": [
     "create",
@@ -33,14 +35,17 @@
     "typescript",
     "starter"
   ],
-  "bin": "./dist/index.js",
+  "bin": {
+    "create-fastymini-app": "./dist/index.js"
+  },
+  "version": "1.0.0",
   "scripts": {
     "release": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
     "start": "node dist/index.js",
     "dev": "ts-node --project tsconfig.json ./src/index.ts",
     "build": "yarn release",
     "lint": "yarn prettier -w 'templates/**/*.ts'",
-    "rename": "node scripts/rename-config.ts",
-    "restore": "node scripts/restore-config.ts"
+    "rename": "ts-node scripts/rename-config.ts",
+    "restore": "ts-node scripts/restore-config.ts"
   }
 }

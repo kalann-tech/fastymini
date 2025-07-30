@@ -57,7 +57,7 @@ async function main() {
     const spinner = loading(`Creating project "${projectName}"…`);
     try {
       spinner.start();
-      await createProject({ projectName, root, packageManager: opts.packageManager, eslint: opts.eslint, prettier: opts.prettier, skipInstall: opts.skipInstall, enableGit: opts.enableGit, editorconfig: opts.editorconfig , template: opts.template || 'default', database: opts.database });
+      await createProject({ projectName, root, packageManager: opts.packageManager, eslint: opts.eslint, prettier: opts.prettier, skipInstall: opts.skipInstall, enableGit: opts.enableGit, editorconfig: opts.editorconfig , template: opts.template || 'default' });
       spinner.succeed(`Project "${projectName}" created successfully!`);
       console.log(`\nNext steps:\n  cd ${projectName}\n  ${opts.packageManager || 'npm'} ${opts.packageManager === 'npm' ? 'run ' : ''}dev`);
     } catch (err) {
