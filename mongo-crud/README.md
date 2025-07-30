@@ -31,6 +31,7 @@ A modern, lightweight setup for a **Fastify** project with **TypeScript**, optim
 
 - **Fastify** v5.4.0 – Ultra-fast HTTP framework with static file serving
 - **TypeScript** v5.8.3 – Static typing for Node.js
+- **MongoDB** + **Mongoose** v8.16.5 – Database and ODM
 - **esbuild** v0.25.6 – Lightning-fast bundler for build and watch
 - **nodemon** + **wait-on** + **concurrently** – Automatic reloading during development
 - **ESLint** v9.31.0 – Modern code linting with flat config
@@ -44,8 +45,11 @@ A modern, lightweight setup for a **Fastify** project with **TypeScript**, optim
 ├── src/
 │   ├── index.ts         # Fastify application entry point
 │   ├── server.ts        # Server configuration
-│   ├── config/          # Configuration files
-│   ├── plugins/         # Fastify plugins
+│   ├── controllers/     # Route controllers (business logic)
+│   ├── helpers/         # Helper functions and utilities
+│   ├── interfaces/      # TypeScript interfaces
+│   ├── models/          # Database models
+│   ├── plugins/         # Fastify plugins (config, mongodb)
 │   └── routes/          # Route handlers
 ├── dist/                # Compiled files (esbuild output)
 ├── public/              # Static assets
@@ -55,7 +59,8 @@ A modern, lightweight setup for a **Fastify** project with **TypeScript**, optim
 ├── tsconfig.json        # TypeScript configuration
 ├── nodemon.json         # Nodemon configuration
 ├── package.json         # Dependencies and scripts
-└── .env                 # Environment variables (optional)
+├── .env.template        # Environment variables template
+└── .env                 # Environment variables (copy from .env.template)
 ```
 
 ## ⚙️ Scripts
@@ -66,7 +71,6 @@ A modern, lightweight setup for a **Fastify** project with **TypeScript**, optim
 | `npm run build:esbuild` | Compiles the project with esbuild            |
 | `npm run dev`           | Development mode with watch and hot-reload   |
 | `npm start`             | Runs the built application (`dist/index.js`) |
-| `npm run lint`          | Lints `.js` and `.ts` files                  |
 
 ## 🚀 Getting Started
 
@@ -76,9 +80,24 @@ A modern, lightweight setup for a **Fastify** project with **TypeScript**, optim
 
 ### Installation
 
-```bash
-npm install
-```
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Setup environment variables:**
+   
+   **On macOS/Linux:**
+   ```bash
+   cp .env.template .env
+   ```
+   
+   **On Windows:**
+   ```cmd
+   copy .env.template .env
+   ```
+   
+   > **Important:** Make sure to copy `.env.template` to `.env` and configure your environment variables as needed.
 
 ### Development
 

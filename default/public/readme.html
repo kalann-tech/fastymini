@@ -1,7 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <met        <pre class="bg-gray-800 text-white rounded-md p-4 text-sm overflow-auto">
+.
+├── src/
+│   ├── index.ts         # Fastify application entry point
+│   ├── server.ts        # Server configuration
+│   ├── config/          # Configuration files
+│   ├── plugins/         # Fastify plugins
+│   └── routes/          # Route handlers
+├── dist/                # Compiled files (esbuild output)
+├── public/              # Static assets
+├── settings/            # Build and project settings
+├── esbuild.config.ts    # esbuild configuration
+├── eslint.config.mjs    # ESLint configuration
+├── tsconfig.json        # TypeScript configuration
+├── nodemon.json         # Nodemon configuration
+├── package.json         # Dependencies and scripts
+├── .env.template        # Environment variables template
+└── .env                 # Environment variables (copy from .env.template)
+      </pre>/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fastify TypeScript Starter</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -111,7 +129,21 @@
         </ul>
 
         <h3 class="text-lg font-medium">Installation</h3>
-        <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-4">npm install</pre>
+        <div class="mb-4">
+          <p class="mb-2"><strong>1. Install dependencies:</strong></p>
+          <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-3">npm install</pre>
+          
+          <p class="mb-2"><strong>2. Setup environment variables:</strong></p>
+          <p class="text-sm text-gray-600 mb-2"><strong>On macOS/Linux:</strong></p>
+          <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-2">cp .env.template .env</pre>
+          
+          <p class="text-sm text-gray-600 mb-2"><strong>On Windows:</strong></p>
+          <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-3">copy .env.template .env</pre>
+          
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+            <p class="text-sm text-blue-800"><strong>Important:</strong> Make sure to copy <code>.env.template</code> to <code>.env</code> and configure your environment variables as needed.</p>
+          </div>
+        </div>
 
         <h3 class="text-lg font-medium">Development</h3>
         <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-2">npm run dev</pre>

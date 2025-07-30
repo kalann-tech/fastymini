@@ -55,7 +55,8 @@ A modern, lightweight setup for a **Fastify** project with **TypeScript**, optim
 ├── tsconfig.json        # TypeScript configuration
 ├── nodemon.json         # Nodemon configuration
 ├── package.json         # Dependencies and scripts
-└── .env                 # Environment variables (optional)
+├── .env.template        # Environment variables template
+└── .env                 # Environment variables (copy from .env.template)
 ```
 
 ## ⚙️ Scripts
@@ -76,9 +77,24 @@ A modern, lightweight setup for a **Fastify** project with **TypeScript**, optim
 
 ### Installation
 
-```bash
-npm install
-```
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Setup environment variables:**
+   
+   **On macOS/Linux:**
+   ```bash
+   cp .env.template .env
+   ```
+   
+   **On Windows:**
+   ```cmd
+   copy .env.template .env
+   ```
+   
+   > **Important:** Make sure to copy `.env.template` to `.env` and configure your environment variables as needed.
 
 ### Development
 
