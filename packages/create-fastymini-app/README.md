@@ -1,5 +1,6 @@
-# create fastymini app
-
+<div align="center">
+  <h1>create fastymini app</h1>
+</div>
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-18.x-brightgreen.svg" alt="Node.js">
   <img src="https://img.shields.io/badge/npm-10.x-red.svg" alt="npm">
