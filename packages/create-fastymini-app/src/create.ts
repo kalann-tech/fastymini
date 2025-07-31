@@ -4,7 +4,6 @@ import { execa } from 'execa'
 import { applyPackageTemplate } from './helper/applyPackageTemplate'
 import { applyTsconfig } from './helper/applyTsconfig'
 import theme from './helper/theme'
-import { DatabaseType } from './types'
 
 export interface CreateOptions {
   template: string;

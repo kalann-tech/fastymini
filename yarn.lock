@@ -508,6 +508,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/figlet@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "@types/figlet@npm:1.7.0"
+  checksum: 10c0/d33a07727e35d6b9ccb47c863d2d9c84b6cd23d2935cf904c495fce687558c842063a7e01176c03a354a2f40f2781004cce66ae446462e5f73c4ee23d7956daa
+  languageName: node
+  linkType: hard
+
 "@types/fs-extra@npm:^11.0.4":
   version: 11.0.4
   resolution: "@types/fs-extra@npm:11.0.4"
@@ -1063,6 +1070,7 @@ __metadata:
   resolution: "create-fastymini-app@workspace:packages/create-fastymini-app"
   dependencies:
     "@eslint/js": "npm:^9.32.0"
+    "@types/figlet": "npm:^1.7.0"
     "@types/fs-extra": "npm:^11.0.4"
     "@types/node": "npm:^24.1.0"
     "@types/prompts": "npm:^2.4.9"
