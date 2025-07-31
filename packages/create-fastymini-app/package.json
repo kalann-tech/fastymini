@@ -40,7 +40,7 @@
     "starter"
   ],
   "bin": "./dist/index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "release": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
     "start": "node dist/index.js",
