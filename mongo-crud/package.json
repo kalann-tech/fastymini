@@ -32,5 +32,5 @@
     "dev": "concurrently \"ts-node esbuild.config.ts --dev\" \"wait-on dist/index.js && nodemon\"",
     "start": "node dist/index.js"
   },
- "license": "MIT"
+  "license": "MIT"
 }

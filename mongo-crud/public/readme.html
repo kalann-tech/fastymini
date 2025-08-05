@@ -1,28 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta         <pre class="bg-gray-800 text-white rounded-md p-4 text-sm overflow-auto">
-.
-├── src/
-│   ├── index.ts         # Fastify application entry point
-│   ├── server.ts        # Server configuration
-│   ├── controllers/     # CRUD operation handlers
-│   ├── helpers/         # Helper functions and utilities
-│   ├── interfaces/      # TypeScript interfaces for requests/responses
-│   ├── models/          # Mongoose models and schemas
-│   ├── plugins/         # Fastify plugins (MongoDB connection, config)
-│   └── routes/          # API route definitions
-├── dist/                # Compiled files (esbuild output)
-├── public/              # Static assets
-├── settings/            # Build and project settings
-├── esbuild.config.ts    # esbuild configuration
-├── eslint.config.mjs    # ESLint configuration
-├── tsconfig.json        # TypeScript configuration
-├── nodemon.json         # Nodemon configuration
-├── package.json         # Dependencies and scripts
-├── .env.template        # Environment variables template
-└── .env                 # Environment variables (copy from .env.template)
-      </pre>   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fastify TypeScript Starter</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -76,6 +56,7 @@
 │   ├── index.ts         # Fastify application entry point
 │   ├── server.ts        # Server configuration
 │   ├── controllers/     # CRUD operation handlers
+│   ├── helpers/         # Helper functions and utilities
 │   ├── interfaces/      # TypeScript interfaces for requests/responses
 │   ├── models/          # Mongoose models and schemas
 │   ├── plugins/         # Fastify plugins (MongoDB connection, config)
@@ -88,9 +69,9 @@
 ├── tsconfig.json        # TypeScript configuration
 ├── nodemon.json         # Nodemon configuration
 ├── package.json         # Dependencies and scripts
-└── .env                 # Env variables (MongoDB connection string)
-      </pre
-        >
+├── .env.template        # Environment variables template
+└── .env                 # Environment variables (copy from .env.template)
+        </pre>
       </section>
 
       <section class="mb-10">
