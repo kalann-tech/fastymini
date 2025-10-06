@@ -1,42 +1,32 @@
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 import fp from 'fastify-plugin';
 import { FastifyPluginAsync } from 'fastify';
-import { Static, Type } from '@sinclair/typebox';
-import Ajv from 'ajv';
+import { z } from 'zod';
 
-export enum NodeEnv {
-  development = 'development',
-  test = 'test',
-  production = 'production',
-}
+export const NodeEnv = z.enum(['development', 'test', 'production']);
 
-const ConfigSchema = Type.Object({
-  NODE_ENV: Type.Enum(NodeEnv),
-  LOG_LEVEL: Type.String(),
-  API_HOST: Type.String(),
-  API_PORT: Type.String(),
+const ConfigSchema = z.object({
+  NODE_ENV: NodeEnv,
+  LOG_LEVEL: z.string().default('info'),
+  API_HOST: z.string().default('0.0.0.0'),
+  API_PORT: z.string().default('3000'),
 });
 
-const ajv = new Ajv({
-  allErrors: true,
-  removeAdditional: true,
-  useDefaults: true,
-  coerceTypes: true,
-  allowUnionTypes: true,
-});
-
-export type Config = Static<typeof ConfigSchema>;
+export type Config = z.infer<typeof ConfigSchema>;
 
 const configPlugin: FastifyPluginAsync = async (server) => {
-  const validate = ajv.compile(ConfigSchema);
-  const valid = validate(process.env);
-  if (!valid) {
-    throw new Error('.env file validation failed - ' + JSON.stringify(validate.errors, null, 2));
+  try {
+    const config = ConfigSchema.parse(process.env);
+    server.decorate('config', config);
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      console.error('❌ .env file validation failed:\n', error.format());
+      throw new Error('.env file validation failed');
+    }
+    throw error;
   }
-  server.decorate('config', process.env as Config);
 };
 
 declare module 'fastify' {

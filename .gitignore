@@ -17,4 +17,8 @@ node_modules
 .pnp.*
 .DS_Store
 
+# Templates backup
+*.backup-*
+.temp-templates
+
 

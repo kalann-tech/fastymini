@@ -34,7 +34,11 @@ export async function createProject({
     const templateDir = path.resolve(__dirname, `../templates/${template}`);
     if (!(await fs.pathExists(templateDir))) throw new Error(`Template not found at ${templateDir}`);
 
-    await fs.copy(templateDir, root, { overwrite: true, errorOnExist: false });
+    await fs.copy(templateDir, root, { 
+      overwrite: true, 
+      errorOnExist: false,
+      filter: () => true 
+    });
 
     await applyPackageTemplate({ root, projectName, eslint, prettier });
 

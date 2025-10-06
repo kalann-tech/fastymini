@@ -2,7 +2,7 @@
   "name": "fastymini-framework",
   "packageManager": "yarn@4.9.2",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A fast and lightweight framework for building web applications",
   "workspaces": [
     "packages/*"
@@ -12,6 +12,6 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/types": "^19.8.1",
     "conventional-changelog-atom": "^5.0.0",
-    "lefthook": "^1.12.2"
+    "lefthook": "^1.13.6"
   }
 }
