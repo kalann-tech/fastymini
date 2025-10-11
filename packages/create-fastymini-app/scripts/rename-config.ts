@@ -8,6 +8,7 @@ const CONFIG_FILES = [
   "eslint.config.mjs",
   ".editorconfig",
   "tsconfig.json",
+  ".gitignore",
 ];
 
 const IGNORE_DIRS = new Set(["node_modules", ".yarn"]);

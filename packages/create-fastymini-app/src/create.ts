@@ -4,7 +4,6 @@ import { execa } from 'execa'
 import { applyPackageTemplate } from './helper/applyPackageTemplate'
 import { applyTsconfig } from './helper/applyTsconfig'
 import theme from './helper/theme'
-import { ensureGitignore } from './helper/ensureGitignore'
 
 export interface CreateOptions {
   template: string;
@@ -44,8 +43,6 @@ export async function createProject({
     await applyPackageTemplate({ root, projectName, eslint, prettier });
 
     await applyTsconfig({ root });
-
-    await ensureGitignore(root);
 
     if (enableGit) {
       try {

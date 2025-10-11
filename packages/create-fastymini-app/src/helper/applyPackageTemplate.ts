@@ -53,5 +53,12 @@ export async function applyPackageTemplate({
   } else {
     await fs.remove(eslintTpl)
     await fs.remove(eslintOut)
-  } 
+  }
+
+  const gitignoreTpl = path.join(root, '.gitignore-template')
+  const gitignoreOut = path.join(root, '.gitignore')
+  
+  if (await fs.pathExists(gitignoreTpl)) {
+    await fs.move(gitignoreTpl, gitignoreOut, { overwrite: true })
+  }
 }

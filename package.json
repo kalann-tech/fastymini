@@ -13,5 +13,13 @@
     "@commitlint/types": "^19.8.1",
     "conventional-changelog-atom": "^5.0.0",
     "lefthook": "^1.13.6"
+  },
+  "scripts": {
+    "build:create": "yarn workspace create-fastymini-app build",
+    "dev:create": "yarn workspace create-fastymini-app dev",
+    "lint:create": "yarn workspace create-fastymini-app lint",
+    "sync-templates": "yarn workspace create-fastymini-app sync-templates",
+    "rename-template": "yarn workspace create-fastymini-app rename",
+    "restore-template": "yarn workspace create-fastymini-app restore"
   }
 }

@@ -9,6 +9,7 @@ const TEMPLATE_FILES = [
   { original: "eslint.config.mjs", template: "eslint.config-template.mjs" },
   { original: ".editorconfig", template: ".editorconfig-template" },
   { original: "tsconfig.json", template: "tsconfig-template.json" },
+  { original: ".gitignore", template: ".gitignore-template" },
 ];
 
 const IGNORE_DIRS = new Set(["node_modules", ".yarn"]);
@@ -39,7 +40,7 @@ function main() {
     !fs.existsSync(templatesDir) ||
     !fs.lstatSync(templatesDir).isDirectory()
   ) {
-    console.error(`Le dossier templates/ est introuvable à : ${templatesDir}`);
+    console.error(`templates/ directory not found: ${templatesDir}`);
     process.exit(1);
   }
   restoreInDir(templatesDir);

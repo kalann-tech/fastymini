@@ -29,7 +29,6 @@ async function main() {
 
   program.action(async (directory) => {
     const opts = program.opts();
-    console.log(theme.info(`Using options: ${JSON.stringify(opts, null, 2)}`));
     let projectName = directory;
     if (!projectName) {
       const { directory: dir } = await prompts({
