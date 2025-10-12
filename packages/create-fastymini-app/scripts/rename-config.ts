@@ -5,7 +5,7 @@ const CONFIG_FILES = [
   "package.json",
   ".prettierrc.json",
   ".prettierignore",
-  "eslint.config.mjs",
+  "eslint.config.mts",
   ".editorconfig",
   "tsconfig.json",
   ".gitignore",

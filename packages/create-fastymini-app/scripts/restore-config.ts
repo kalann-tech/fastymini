@@ -6,7 +6,7 @@ const TEMPLATE_FILES = [
   { original: "package.json", template: "package-template.json" },
   { original: ".prettierrc", template: ".prettierrc-template" },
   { original: ".prettierignore", template: ".prettierignore-template" },
-  { original: "eslint.config.mjs", template: "eslint.config-template.mjs" },
+  { original: "eslint.config.mts", template: "eslint.config-template.mts" },
   { original: ".editorconfig", template: ".editorconfig-template" },
   { original: "tsconfig.json", template: "tsconfig-template.json" },
   { original: ".gitignore", template: ".gitignore-template" },
