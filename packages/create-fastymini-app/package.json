@@ -40,12 +40,13 @@
     "starter"
   ],
   "bin": "./dist/index.js",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "scripts": {
     "release": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register --external figlet",
     "start": "node dist/index.js",
     "dev": "ts-node --project tsconfig.json ./src/index.ts",
     "build": "yarn release",
+    "prepublishOnly": "yarn build",
     "lint": "yarn prettier -w 'templates/**/*.ts' --config ./templates/.prettierrc.json",
     "sync-templates": "ts-node scripts/sync-templates.ts",
     "rename": "ts-node scripts/rename-config.ts",
