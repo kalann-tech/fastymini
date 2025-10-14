@@ -40,7 +40,7 @@ export async function createProject({
       filter: () => true 
     });
 
-    await applyPackageTemplate({ root, projectName, eslint, prettier });
+    await applyPackageTemplate({ root, projectName, eslint, prettier, editorconfig });
 
     await applyTsconfig({ root });
 
@@ -56,24 +56,6 @@ export async function createProject({
       await execa(packageManager, ["install"], { cwd: root, stdio: "ignore" });
     } else {
       console.log("ℹ️  Skipping dependency installation");
-    }
-
-    if (!editorconfig) {
-      const editorConfigTpl = path.join(root, ".editorconfig-template");
-      if (await fs.pathExists(editorConfigTpl)) {
-        await fs.remove(editorConfigTpl);
-      }
-    } else {
-      const editorConfigTpl = path.join(root, ".editorconfig-template");
-      const editorConfigOut = path.join(root, ".editorconfig");
-      if (await fs.pathExists(editorConfigTpl)) {
-        await fs.move(editorConfigTpl, editorConfigOut, { overwrite: true });
-      } else {
-        await fs.writeFile(
-          editorConfigOut,
-          "# EditorConfig is awesome!\nroot = true\n[*]\nindent_style = space\nindent_size = 2\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n"
-        );
-      }
     }
 
     console.log(
