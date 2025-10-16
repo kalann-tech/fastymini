@@ -1,6 +1,6 @@
 import * as esbuild from 'esbuild';
 import copy from './settings/esbuild-copy';
-import { rmSync } from 'fs';
+import { rmSync, existsSync } from 'fs';
 import { execSync } from 'child_process';
 import { packageManager } from './settings/package-manager';
 
@@ -38,7 +38,14 @@ const esbuildConfig: esbuild.BuildOptions = {
   metafile: !isDev,
 };
 
+const hasEslint = existsSync('eslint.config.mts') || existsSync('eslint.config.mjs') || existsSync('eslint.config.js');
+
 const runLint = () => {
+  if (!hasEslint) {
+    console.log('⏭️  Skipping lint (ESLint not configured).');
+    return;
+  }
+  
   console.log('🔍 linting...');
   try {
     execSync(`${packageManager} lint`, { stdio: 'inherit' });
