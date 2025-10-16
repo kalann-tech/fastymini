@@ -31,7 +31,7 @@
     "build:esbuild": "ts-node esbuild.config.ts",
     "dev": "concurrently \"ts-node esbuild.config.ts --dev\" \"wait-on dist/index.js && nodemon\"",
     "start": "node dist/index.js",
-    "lint": "eslint .",
+    "lint": "eslint",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
   }

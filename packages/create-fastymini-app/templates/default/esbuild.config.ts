@@ -1,6 +1,8 @@
 import * as esbuild from 'esbuild';
 import copy from './settings/esbuild-copy';
 import { rmSync } from 'fs';
+import { execSync } from 'child_process';
+import { packageManager } from './settings/package-manager';
 
 const isDev = process.argv.includes('--dev');
 
@@ -36,8 +38,20 @@ const esbuildConfig: esbuild.BuildOptions = {
   metafile: !isDev,
 };
 
+const runLint = () => {
+  console.log('🔍 linting...');
+  try {
+    execSync(`${packageManager} lint`, { stdio: 'inherit' });
+    console.log('✅ Lint passed successfully.');
+  } catch {
+    console.error('❌ Lint failed. Please fix the errors before building.');
+    process.exit(1);
+  }
+};
+
 const start = async () => {
   if (isDev) {
+    runLint();
     const context = await esbuild.context(esbuildConfig);
 
     process.on('SIGINT', async () => {
@@ -51,6 +65,8 @@ const start = async () => {
     console.log('Initial build complete. Watching for changes...');
     await context.watch();
   } else {
+    runLint();
+
     console.log('Building...');
     const result = await esbuild.build(esbuildConfig);
     if (result.metafile) {
