@@ -11,8 +11,10 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/types": "^19.8.1",
+    "@types/node": "^24.10.0",
     "conventional-changelog-atom": "^5.0.0",
-    "lefthook": "^1.13.6"
+    "lefthook": "^1.13.6",
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "build:create": "yarn workspace create-fastymini-app build",
